@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Test</title>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+
+<body>
+
+	<header th:replace="/layout/header::header"></header>
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<!-- a -->
+				<section>
+					<p>En las agendas virtuales tienes la posibilidad de clasificar
+						tus tareas y actividades pendientes por prioridad y tareas
+						tematicas, y tambien de incluir alarmas como recordatorios.
+						Algunas aplicaciones te permiten compartir proyectos y asignar
+						tareas a cada uno de los miembros de un equipo de estudio</p>
+				</section>
+
+				<video controls>
+					<source src="../static/Videos/perro vegano.mp4" type="video/mp4">
+				</video>
+			</div>
+		</div>
+	</div>
+
+
+	<footer th:replace="/layout/footer::footer"></footer>
+	
+	
+<script src="/webjars/jquery/jquery.min.js" type="text/javascript"></script>
+<script src="/webjars/jquery/jquery.min.js" type="text/javascript"></script>
+<script src="/webjars/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+</body>
+
+</html>

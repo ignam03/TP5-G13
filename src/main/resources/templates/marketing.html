@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head xmlns:th="http://thymeleaf.org">
+<meta charset="UTF-8">
+<title>Test</title>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+
+<body>
+
+	<header th:replace="/layout/header::header"></header>
+
+	<div class="container">
+		<section>
+			<table border="1">
+				<legend> Programacion Visual</legend>
+				<tbody style="text-align: center; padding: 1%;">
+					<tr>
+						<td>Fecha Inicio</td>
+						<td>Horario</td>
+						<td>Fecha Fin</td>
+						<td>Modalidad</td>
+						<td>Docente</td>
+						<td>Duraciond de Semanas</td>
+					</tr>
+					<tr>
+						<td>30/03/22</td>
+						<td>15:30 - 18:00</td>
+						<td>29/07/22</td>
+						<td>Presencial-Virtual</td>
+						<td>Ing. Ariel Vega</td>
+						<td>16 Semanas</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</div>
+
+	<footer th:replace="/layout/footer::footer"></footer>
+	
+	
+<script src="/webjars/jquery/jquery.min.js" type="text/javascript"></script>
+<script src="/webjars/jquery/jquery.min.js" type="text/javascript"></script>
+<script src="/webjars/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+</body>
+
+</html>

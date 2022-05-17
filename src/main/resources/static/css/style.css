@@ -1,0 +1,15 @@
+@charset "ISO-8859-1";
+
+
+p {
+	font-size: 1.3em;
+	background-color: #0F0;
+	font-family: sans-serif;
+	display:inline;
+}
+
+li a {
+	text-decoration: none;
+	font-family: sans-serif;
+}
+

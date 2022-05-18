@@ -44,7 +44,7 @@
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="telefonoId">Teléfono: </label>
                                 <input th:field="*{telefono}" type="number" id="telefonoId" class="form-control" />
-                                <div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telofono}"></div>
+                                <div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
                             </div>
                             <button type="submit" class="btn btn-outline-success btn-block mb-4">Enviar</button>
                             <button type="submit" class="btn btn-outline-dark btn-block mb-4">Cancelar</button>

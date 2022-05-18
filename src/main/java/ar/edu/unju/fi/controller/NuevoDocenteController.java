@@ -7,6 +7,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -31,7 +33,16 @@ public class NuevoDocenteController {
     }
 
     @PostMapping("/guardar")
-    public ModelAndView getListaDocentePage(@ModelAttribute("docente")Docente docente) {
+    public ModelAndView getListaDocentePage(@Validated @ModelAttribute("docente") Docente docente,
+            BindingResult bindingResult) {
+
+        if (bindingResult.hasErrors()) {
+            ModelAndView view = new ModelAndView("nuevo_docente");
+
+            view.addObject("docente", docente);
+            return view;
+        }
+
         ModelAndView view = new ModelAndView("lista_docentes");
         // creacion de objeto de lista docente tipo arralist
         ListaDocente listaDocentes = new ListaDocente();

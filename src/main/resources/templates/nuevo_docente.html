@@ -24,22 +24,27 @@
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="legajoId">Legajo </label>
                                 <input th:field="*{legajo}" type="number" id="legajoId" class="form-control" />
+                                <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('legajo')}" th:errors="*{legajo}"></div>
                             </div>
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="nombresId">Nombres </label>
                                 <input th:field="*{nombre}" type="text" id="nombresId" class="form-control" />
+                                <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
                             </div>
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="apellidosId">Apellidos </label>
                                 <input th:field="*{apellido}" type="text" id="apellidosId" class="form-control" />
+                                <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div>
                             </div>
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="emailId">Email </label>
                                 <input th:field="*{email}" type="text" id="emailId" class="form-control" />
+                                <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
                             </div>
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="telefonoId">Teléfono: </label>
                                 <input th:field="*{telefono}" type="number" id="telefonoId" class="form-control" />
+                                <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
                             </div>
                             <button type="submit" class="btn btn-outline-success btn-block mb-4">Enviar</button>
                             <a th:href="@{/pci/inicio}" class="btn btn-outline-dark btn-block mb-4">Cancelar</a>

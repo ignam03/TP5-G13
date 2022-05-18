@@ -2,14 +2,23 @@ package ar.edu.unju.fi.model;
 
 import java.time.LocalDate;
 
+import javax.validation.constraints.Future;
+import javax.validation.constraints.FutureOrPresent;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+
 public class Beca {
 	
-	private int codigo;
-	private Curso curso;
-	private LocalDate fechaInicio;
-	private LocalDate fechaFin;
-	private String estado;
-	
+	@Min(value=100,message="El codigo debe ser mayor a 100")
+    private int codigo;
+    @NotEmpty
+    private Curso curso;
+    @Future @FutureOrPresent
+    private LocalDate fechaInicio;
+    private LocalDate fechaFin;
+    @NotBlank(message="no debe ser vacio")
+    private String estado;
 	
 	public Beca() {
 		

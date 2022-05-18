@@ -1,11 +1,23 @@
 package ar.edu.unju.fi.model;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 public class Alumno {
 
+	@Min(value=1000000,message="El DNI debe ser mayor a 1.000.000")
 	private int dni;
+	@Size(min=3, max=20, message="El nombre debe tener entre 3 a 20 caracteres")
+	@NotEmpty(message="El nombre del alumno no puede ser vacio")
 	private String nombre;
+	@NotBlank(message="El apellido del alumno no puede ser blanco")
 	private String apellido;
+	@NotEmpty @Email
 	private String email;
+	@Size(min=5, max=10) @NotEmpty(message="El telefono no puede ser vacío")
 	private String telefono;
 	
 	

@@ -24,22 +24,27 @@
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="dniId">DNI </label>
                                 <input th:field="*{dni}" type="number" id="dniId" class="form-control" />
+                            	<div class="text-danger" th:if="${#fields.hasErrors('dni')}" the:errors="*{dni}"></div>
                             </div>
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="nombresId">Nombres </label>
                                 <input th:field="*{nombre}" type="text" id="nombresId" class="form-control" />
+                                <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" the:errors="*{nombre}"></div>
                             </div>
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="apellidoId">Apellidos </label>
                                 <input th:field="*{apellido}" type="text" id="apellidoId" class="form-control" />
+                                <div class="text-danger" th:if="${#fields.hasErrors('apellido')}" the:errors="*{apellido}"></div>
                             </div>
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="emailId">Email </label>
                                 <input th:field="*{email}" type="text" id="emailId" class="form-control" />
+                                <div class="text-danger" th:if="${#fields.hasErrors('email')}" the:errors="*{email}"></div>
                             </div>
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="telefonoId">Teléfono: </label>
                                 <input th:field="*{telefono}" type="number" id="telefonoId" class="form-control" />
+                                <div class="text-danger" th:if="${#fields.hasErrors('telefono')}" the:errors="*{telofono}"></div>
                             </div>
                             <button type="submit" class="btn btn-outline-success btn-block mb-4">Enviar</button>
                             <button type="submit" class="btn btn-outline-dark btn-block mb-4">Cancelar</button>

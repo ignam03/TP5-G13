@@ -26,7 +26,7 @@ public class NuevaBecaController {
 
     private static final Log LOGGER = LogFactory.getLog(NuevoAlumnoController.class);
     ListaBeca listaBeca = new ListaBeca();
-    //TENEMOS QUE ARREGLAR EL DATETIME DE LA CLASE LISTABECAS
+    //TENEMOS QUE ARREGLAR EL LocalDate DE LA CLASE BECAS
 	/*
 	 * @PostMapping("/guardar") public ModelAndView
 	 * getListBecaPage(@Validated @ModelAttribute("Beca")ListaBeca Beca,

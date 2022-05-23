@@ -21,6 +21,7 @@ import ar.edu.unju.fi.util.ListaAlumno;
 public class NuevoAlumnoController {
     
     private static final Log LOGGER = LogFactory.getLog(NuevoAlumnoController.class);
+    ListaAlumno listaAlumnos = new ListaAlumno();
 
     @GetMapping("/nuevo")
     public String getFormNewAlumnoPage(Model model){
@@ -36,7 +37,6 @@ public class NuevoAlumnoController {
         	return mav;
         }
     	ModelAndView viewAlumno = new ModelAndView("lista_alumnos");
-        ListaAlumno listaAlumnos = new ListaAlumno();
         if(listaAlumnos.getAlumnos().add(alumno)){
             LOGGER.info("Se agrego un objeto al arraylist alumno");
         }
@@ -47,7 +47,6 @@ public class NuevoAlumnoController {
     @GetMapping("/lista_alumnos")
     public ModelAndView getListaAlumos(){
         ModelAndView movAlumos = new ModelAndView("lista_alumnos");
-        ListaAlumno listaAlumnos = new ListaAlumno();
         movAlumos.addObject("alumnos",listaAlumnos.getAlumnos());
         return movAlumos;
     }

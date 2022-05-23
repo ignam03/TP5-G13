@@ -25,6 +25,8 @@ import ar.edu.unju.fi.util.ListaDocente;
 public class NuevoDocenteController {
 
     private static final Log LOOGER = LogFactory.getLog(NuevoDocenteController.class);
+    // creacion de objeto de lista docente tipo arralist
+    ListaDocente listaDocentes = new ListaDocente();
 
     @GetMapping("/nuevo")
     public String getFormNewDocentePage(Model model) {
@@ -44,8 +46,6 @@ public class NuevoDocenteController {
         }
 
         ModelAndView view = new ModelAndView("lista_docentes");
-        // creacion de objeto de lista docente tipo arralist
-        ListaDocente listaDocentes = new ListaDocente();
         // recupera el arralist de docnetes y agregar el nuevo docente a la lista
         if (listaDocentes.getDocentes().add(docente)) {
             LOOGER.info("se agrego un objeto al arraylist docente");
@@ -58,7 +58,6 @@ public class NuevoDocenteController {
     @GetMapping("/lista_docentes")
     public ModelAndView getListaDocente() {
         ModelAndView movDocente = new ModelAndView("lista_docentes");
-        ListaDocente listaDocentes = new ListaDocente();
         movDocente.addObject("docentes", listaDocentes.getDocentes());
         return movDocente;
     }

@@ -4,20 +4,29 @@ import java.time.LocalDate;
 
 import javax.validation.constraints.Future;
 import javax.validation.constraints.FutureOrPresent;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.stereotype.Component;
+
+@Component
 public class Beca {
 	
-	@Min(value=100,message="El codigo debe ser mayor a 100")
+	@Min(value=1,message="El codigo minimo es 1")@Max(value=9999,message="El valor máximo permitido es 9999")
     private int codigo;
-    @NotEmpty
+    @NotNull(message="Debe seleccionar un curso")
     private Curso curso;
-    @Future @FutureOrPresent
+	@NotNull @FutureOrPresent(message="La fecha debe ser hoy o posterior")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
     private LocalDate fechaInicio;
+	@NotNull @Future(message="La fecha debe ser posterior a la actual")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
     private LocalDate fechaFin;
-    @NotBlank(message="no debe ser vacio")
+    @NotNull(message="no debe ser vacio")
+	@NotEmpty(message="estado no puede ser vacío")
     private String estado;
 	
 	public Beca() {

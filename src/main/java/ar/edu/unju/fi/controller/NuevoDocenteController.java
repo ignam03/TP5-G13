@@ -1,7 +1,7 @@
 package ar.edu.unju.fi.controller;
 
 
-import java.util.Optional;
+
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -65,7 +65,7 @@ public class NuevoDocenteController {
     @DeleteMapping("/delete")
     public ModelAndView deleteDocente(@RequestParam(name="legajo")int legajo){
         ModelAndView modelAndView = new ModelAndView("lista_docentes");
-        Optional<Docente> d  ;
+        
         return modelAndView ;
     }
 

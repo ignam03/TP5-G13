@@ -12,9 +12,9 @@ public class ListaDocente {
     public ListaDocente() {
         docentes = new ArrayList<Docente>();
 
-        docentes.add(new Docente(3213123, "nombre", "apellido", "email", "telefono"));
-        docentes.add(new Docente(3213123, "nombre", "apellido", "email", "telefono"));
-        docentes.add(new Docente(3213123, "nombre", "apellido", "email", "telefono"));
+        docentes.add(new Docente(3213123, "ignacio", "lopez", "ig@gmail.com", "3884798702"));
+        docentes.add(new Docente(3213123, "luis", "almada", "la@gmail.com", "3884798123"));
+        docentes.add(new Docente(3213123, "matias", "gallardo", "mg@gmail.com", "3884798152"));
     }
 
     public ListaDocente(ArrayList<Docente> docentes) {

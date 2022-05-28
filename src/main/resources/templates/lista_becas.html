@@ -2,20 +2,21 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista Becas y Beneficios</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lista Becas y Beneficios</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 </head>
+
 <body>
 
-    <header th:replace="/layout/header::header"></header>
-	 <div class="container">
+	<header th:replace="/layout/header::header"></header>
+	<div class="container">
 		<div class="row">
 			<div class="col-12 offset-md-10">
-				<a th:href="@{/nuevo/nueva_becas}" class="btn btn-outline-primary mt-5">Nuevo Becas</a>
+				<a th:href="@{/beca/nueva}" class="btn btn-outline-primary mt-5">Nuevo Becas</a>
 			</div>
 			<h3 class="mb-5 text-muted">Lista Becas</h3>
 			<div class="col-12 d-flex justify-content-center">
@@ -32,9 +33,9 @@
 					<tbody>
 						<tr th:each="beca :${becas}">
 							<th scope="row" th:text="${beca.codigo}"></th>
-							<td th:text="${beca.curso}"></td>
-							<td th:text="${beca.fechaInicio}"></td>
-							<td th:text="${beca.fechaFin}"></td>
+							<td th:text="${beca.curso.titulo}"></td>
+							<td th:text="${#temporals.format(beca.fechaInicio, 'dd/MM/yyyy')}"></td>
+							<td th:text="${#temporals.format(beca.fechaFin, 'dd/MM/yyyy')}"></td>
 							<td th:text="${beca.estado}"></td>
 							<td>
 								<a href="#" id="editarDocente" class="btn btn-warning">Editar</a>
@@ -50,11 +51,12 @@
 
 
 
-    <footer th:replace="/layout/footer::footer"></footer>
+	<footer th:replace="/layout/footer::footer"></footer>
 
-    <script src="/webjars/jquery/jquery.min.js" type="text/javascript"></script>
-    <script src="/webjars/jquery/jquery.min.js" type="text/javascript"></script>
-    <script src="/webjars/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="/webjars/jquery/jquery.min.js" type="text/javascript"></script>
+	<script src="/webjars/jquery/jquery.min.js" type="text/javascript"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 
 </body>
+
 </html>

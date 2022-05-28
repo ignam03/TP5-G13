@@ -19,36 +19,60 @@
             <div class="">
                 <div class="row align-items-center mt-5 ">
                     <div class="col-6 col-md-6 offset-md-3">
-                        <form>
-                            <h3 class="mb-4">Alta Becas</h3>
+                        <form th:action="@{/beca/guardar}" method="POST" th:object="${beca}">
+                            <h3 class="mb-4">Alta Becas 🪕</h3>
                             <div class="form-outline mb-4">
-                                <label class="form-label" for="form4Example1">Codigo </label>
-                                <input type="number" id="form4Example1" class="form-control" />
+                                <label class="form-label" for="codigoId">Codigo </label>
+                                <input th:field="*{codigo}" type="number" id="codigoId" class="form-control" />
+                                <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('codigo')}"
+                                    th:errors="*{codigo}"></div>
                             </div>
                             <div class="form-outline mb-4">
-                                <label class="form-label" for="form4Example1">Curso </label>
-                                <input type="text" id="form4Example1" class="form-control" />
+                                <label class="form-label" for="cursoId">Curso </label>
+                                <select th:field="*{curso.codigo}" class="form-select" name="" id="cursoId">
+                                    <option th:each="curso :${cursos}" th:value="${curso.codigo}" th:text="${curso.titulo}"></option>
+                                </select>
+                                <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('curso')}"
+                                    th:errors="*{curso}"></div>
                             </div>
                             <div class="form-outline mb-4">
-                                <label class="form-label" for="form4Example1">Fecha Inicio </label>
-                                <input type="date" id="form4Example1" class="form-control" />
+                                <label class="form-label" for="fechaIniId">Fecha Inicio </label>
+                                <input th:field="*{fechaInicio}" type="date" id="fechaInicio" th:value="*{fechaInicio}"
+                                    class="form-control" />
+                                <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('fechaInicio')}"
+                                    th:errors="*{fechaInicio}">
+                                </div>
                             </div>
                             <div class="form-outline mb-4">
-                                <label class="form-label" for="form4Example3">Fecha Fin </label>
-                                <input type="date" id="form4Example2" class="form-control" />
+                                <label class="form-label" for="fechaFindId">Fecha Fin </label>
+                                <input th:field="*{fechaFin}" type="date" id="fechaFindId" th:value="*{fechaFin}"
+                                    class="form-control" />
+                                <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('fechaFin')}"
+                                    th:errors="*{fechaFin}">
+                                </div>
                             </div>
                             <div class="form-outline mb-4">
-                                <label class="form-label" for="form4Example2">Estado: </label>
-                                <input type="text" id="form4Example2" class="form-control" />
+                                <label class="form-label" for="estadoId">Estado: </label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio1" th:field="*{estado}" value="Aprobado">
+                                    <label class="form-check-label" for="inlineRadio1">Aprobado</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio1" th:field="*{estado}" value="Desaprobado">
+                                    <label class="form-check-label" for="inlineRadio1">Desaprobado</label>
+                                </div>
+                                <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('estado')}"
+                                    th:errors="*{estado}"></div>
                             </div>
                             <button type="submit" class="btn btn-outline-success btn-block mb-4">Enviar</button>
-                            <button type="submit" class="btn btn-outline-dark btn-block mb-4">Cancelar</button>
+                            <a th:href="@{/pci/inicio}" class="btn btn-outline-dark btn-block mb-4">Cancelar</a>
                         </form>
                     </div>
                 </div>
             </div>
         </section>
-
     </div>
 
     <footer th:replace="/layout/footer::footer"></footer>

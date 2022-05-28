@@ -1,5 +1,7 @@
 package ar.edu.unju.fi.controller;
 
+import java.util.Optional;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
@@ -12,32 +14,54 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import ar.edu.unju.fi.model.Alumno;
+import ar.edu.unju.fi.model.Beca;
+import ar.edu.unju.fi.model.Curso;
 import ar.edu.unju.fi.util.ListaBeca;
+import ar.edu.unju.fi.util.ListaCurso;
 
 @Controller
 @RequestMapping("/beca")
 public class NuevaBecaController {
-    
+
+    public static final Log LOOGER = LogFactory.getLog(NuevaBecaController.class);
+
+    @GetMapping("/nueva")
+    public String getNuevaBecaPage(Model model) {
+        model.addAttribute("beca", new Beca());
+        ListaCurso listaCurso = new ListaCurso();
+        model.addAttribute("cursos", listaCurso.getCursos());
+        return "nueva_beca";
+    }
+
+    @PostMapping("/guardar")
+    public ModelAndView getListCursoPage(@Validated @ModelAttribute("beca") Beca beca, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            LOOGER.error("No se cumplen las reglas de validacion");
+            ModelAndView view = new ModelAndView("nueva_beca");
+            view.addObject("beca", beca);
+            ListaCurso listaCurso = new ListaCurso();
+            view.addObject("cursos", listaCurso.getCursos());
+            return view;
+        }
+
+        ModelAndView view = new ModelAndView("lista_becas");
+        ListaBeca listaBeca = new ListaBeca();
+        ListaCurso listaCurso = new ListaCurso();
+        Optional<Curso> curso = listaCurso.getCursos().stream()
+                .filter(c -> c.getCodigo() == beca.getCurso().getCodigo()).findFirst();
+        beca.setCurso(curso.get());
+        if (listaBeca.getBecas().add(beca)) {
+            LOOGER.info("Se agrego correctamente el objeto al arraylist becas");
+        }
+        view.addObject("becas", listaBeca.getBecas());
+        return view;
+    }
+
     @GetMapping("/lista_becas")
-    public String getNuevaBeca(){
+    public String getListBeca(Model model) {
+        ListaBeca listaBeca = new ListaBeca();
+        model.addAttribute("becas", listaBeca.getBecas());
         return "lista_becas";
     }
 
-    private static final Log LOGGER = LogFactory.getLog(NuevoAlumnoController.class);
-    ListaBeca listaBeca = new ListaBeca();
-    //TENEMOS QUE ARREGLAR EL LocalDate DE LA CLASE BECAS
-	/*
-	 * @PostMapping("/guardar") public ModelAndView
-	 * getListBecaPage(@Validated @ModelAttribute("Beca")ListaBeca Beca,
-	 * BindingResult bindingResult){ if(bindingResult.hasErrors()) { ModelAndView
-	 * mav = new ModelAndView("nueva_becas"); mav.addObject("beca", Beca); return
-	 * mav; } ModelAndView viewBecas = new ModelAndView("lista_becas");
-	 * if(listaBeca.getBecas().add(Beca)){
-	 * LOGGER.info("Se agrego un objeto al arraylist becas"); }
-	 * viewBecas.addObject("Beca",listaBeca.getBecas()); return viewBecas; }
-	 * 
-	 * @GetMapping("/lista_becas") public ModelAndView getListaBecas(){ ModelAndView
-	 * movBecas = new ModelAndView("lista_becas");
-	 * movBecas.addObject("Beca",listaBeca.getBecas()); return movBecas; }
-	 */}
+}

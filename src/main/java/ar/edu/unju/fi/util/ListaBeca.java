@@ -19,7 +19,7 @@ public class ListaBeca {
 
 		Curso curso1 = (new Curso(1, "Kotlin", "desarrollo", LocalDate.of(2022, 5, 20), LocalDate.of(2022, 9, 20), 200, "virtual", docente1));
 
-		becas.add(new Beca(1234, curso1, LocalDate.of(2022, 5, 28), LocalDate.of(2022, 7, 1), "estado"));
+		becas.add(new Beca(1234, curso1, LocalDate.of(2022, 5, 28), LocalDate.of(2022, 7, 1), "aprobado"));
 	}
 
 	public ListaBeca(ArrayList<Beca> becas) {

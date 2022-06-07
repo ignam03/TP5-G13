@@ -32,6 +32,7 @@ public class NuevoAlumnoController {
     public ModelAndView getListAlumnoPage(@Validated @ModelAttribute("alumno") Alumno alumno,
             BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
+            LOGGER.info("error no cumple con las condiciones");
             ModelAndView mav = new ModelAndView("nuevo_alumno");
             mav.addObject("alumno", alumno);
             return mav;

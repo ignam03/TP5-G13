@@ -24,6 +24,7 @@ import ar.edu.unju.fi.util.ListaCurso;
 public class NuevaBecaController {
 
     public static final Log LOOGER = LogFactory.getLog(NuevaBecaController.class);
+    ListaBeca listaBeca = new ListaBeca();
 
     @GetMapping("/nueva")
     public String getNuevaBecaPage(Model model) {
@@ -45,7 +46,6 @@ public class NuevaBecaController {
         }
 
         ModelAndView view = new ModelAndView("lista_becas");
-        ListaBeca listaBeca = new ListaBeca();
         ListaCurso listaCurso = new ListaCurso();
         Optional<Curso> curso = listaCurso.getCursos().stream()
                 .filter(c -> c.getCodigo() == beca.getCurso().getCodigo()).findFirst();

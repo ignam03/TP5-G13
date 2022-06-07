@@ -1,8 +1,5 @@
 package ar.edu.unju.fi.controller;
 
-
-
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
@@ -39,6 +36,7 @@ public class NuevoDocenteController {
             BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
+            LOOGER.info("error al crear docente");
             ModelAndView view = new ModelAndView("nuevo_docente");
 
             view.addObject("docente", docente);
@@ -63,11 +61,10 @@ public class NuevoDocenteController {
     }
 
     @DeleteMapping("/delete")
-    public ModelAndView deleteDocente(@RequestParam(name="legajo")int legajo){
+    public ModelAndView deleteDocente(@RequestParam(name = "legajo") int legajo) {
         ModelAndView modelAndView = new ModelAndView("lista_docentes");
-        
-        return modelAndView ;
+
+        return modelAndView;
     }
 
-    
 }

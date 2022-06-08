@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ar.edu.unju.fi.entity.Alumno;
+import ar.edu.unju.fi.repository.IAlumnoDAO;
 import ar.edu.unju.fi.service.IAlumnoService;
 import ar.edu.unju.fi.util.ListaAlumno;
 
@@ -16,13 +17,16 @@ import ar.edu.unju.fi.util.ListaAlumno;
 public class AlumnoServiceImp implements IAlumnoService{
 
     @Autowired
+    IAlumnoDAO alumnoDaoImp; 
+
+    @Autowired
     private ListaAlumno listaAlumnos;
 
     private static final Log LOGGER = LogFactory.getLog(AlumnoServiceImp.class);
 
     @Override
-    public Boolean saveAlumno(Alumno alumno){
-        return listaAlumnos.getAlumnos().add(alumno);
+    public void saveAlumno(Alumno alumno){
+        alumnoDaoImp.save(alumno);
     }
 
     @Override

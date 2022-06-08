@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ar.edu.unju.fi.entity.Alumno;
-import ar.edu.unju.fi.repository.IAlumnoDAO;
+import ar.edu.unju.fi.repository.AlumnoRepository;
 import ar.edu.unju.fi.service.IAlumnoService;
 import ar.edu.unju.fi.util.ListaAlumno;
 
@@ -17,7 +17,7 @@ import ar.edu.unju.fi.util.ListaAlumno;
 public class AlumnoServiceImp implements IAlumnoService{
 
     @Autowired
-    IAlumnoDAO alumnoDaoImp; 
+    AlumnoRepository alumnoDaoImp; 
 
     @Autowired
     private ListaAlumno listaAlumnos;

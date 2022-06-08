@@ -4,8 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import ar.edu.unju.fi.model.Curso;
-import ar.edu.unju.fi.model.Docente;
+import ar.edu.unju.fi.entity.Curso;
+import ar.edu.unju.fi.entity.Docente;
 
 public class ListaCurso {
 

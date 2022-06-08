@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import ar.edu.unju.fi.model.Beca;
-import ar.edu.unju.fi.model.Curso;
+import ar.edu.unju.fi.entity.Beca;
+import ar.edu.unju.fi.entity.Curso;
 import ar.edu.unju.fi.util.ListaBeca;
 import ar.edu.unju.fi.util.ListaCurso;
 

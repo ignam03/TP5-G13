@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Component;
 
-import ar.edu.unju.fi.model.Alumno;
+import ar.edu.unju.fi.entity.Alumno;
 
 @Component
 public class ListaAlumno {

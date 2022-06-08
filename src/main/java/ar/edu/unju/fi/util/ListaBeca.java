@@ -3,10 +3,9 @@ package ar.edu.unju.fi.util;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-
-import ar.edu.unju.fi.model.Beca;
-import ar.edu.unju.fi.model.Curso;
-import ar.edu.unju.fi.model.Docente;
+import ar.edu.unju.fi.entity.Beca;
+import ar.edu.unju.fi.entity.Curso;
+import ar.edu.unju.fi.entity.Docente;
 
 public class ListaBeca {
 

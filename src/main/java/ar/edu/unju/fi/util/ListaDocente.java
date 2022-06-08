@@ -3,7 +3,7 @@ package ar.edu.unju.fi.util;
 import java.util.ArrayList;
 import java.util.Optional;
 
-import ar.edu.unju.fi.model.Docente;
+import ar.edu.unju.fi.entity.Docente;
 
 public class ListaDocente {
 

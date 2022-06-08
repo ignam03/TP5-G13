@@ -8,7 +8,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ar.edu.unju.fi.model.Alumno;
+import ar.edu.unju.fi.entity.Alumno;
 import ar.edu.unju.fi.service.IAlumnoService;
 import ar.edu.unju.fi.util.ListaAlumno;
 

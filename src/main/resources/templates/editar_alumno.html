@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alta Alumno</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+
+<body>
+
+    <header th:replace="/layout/header::header"></header>
+
+    <div class="container">
+        <section>
+            <div class="">
+                <div class="row align-items-center mt-5 ">
+                    <div class="col-6 col-md-6 offset-md-3">
+                        <form th:action="@{/alumno/modificar}" method="POST" th:object="${alumno}">
+                            <h3 class="mb-4">Editar Alumno 🧑 </h3>
+                            <div class="form-outline mb-4">
+                                <input type="hidden" th:field="*{dni}" />
+                                <label class="form-label" for="dniId">DNI </label>
+                                <input th:field="*{dni}" type="number" id="dniId" class="form-control" />
+                                <!--Mostrar el mensaje de error-->
+                                <div class="alert alert-danger text-black" role="alert"
+                                    th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></div>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="nombresId">Nombres </label>
+                                <input th:field="*{nombre}" type="text" id="nombresId" class="form-control" />
+                                <div class="alert alert-danger text-black" th:if="${#fields.hasErrors('nombre')}"
+                                    th:errors="*{nombre}"></div>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="apellidoId">Apellidos </label>
+                                <input th:field="*{apellido}" type="text" id="apellidoId" class="form-control" />
+                                <div class="alert alert-danger text-black" th:if="${#fields.hasErrors('apellido')}"
+                                    th:errors="*{apellido}"></div>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="emailId">Email </label>
+                                <input th:field="*{email}" type="text" id="emailId" class="form-control" />
+                                <div class="alert alert-danger text-black" th:if="${#fields.hasErrors('email')}"
+                                    th:errors="*{email}"></div>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="telefonoId">Teléfono: </label>
+                                <input th:field="*{telefono}" type="number" id="telefonoId" class="form-control" />
+                                <div class="alert alert-danger text-black" th:if="${#fields.hasErrors('telefono')}"
+                                    th:errors="*{telefono}"></div>
+                            </div>
+                            <button type="submit" class="btn btn-outline-success btn-block mb-4">Enviar</button>
+                            <button type="submit" class="btn btn-outline-dark btn-block mb-4">Cancelar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer th:replace="/layout/footer::footer"></footer>
+
+    <script src="/webjars/jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="/webjars/jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="/webjars/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+</body>
+
+</html>

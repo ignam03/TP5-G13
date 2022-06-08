@@ -6,6 +6,10 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import org.springframework.stereotype.Component;
+
+
+@Component
 public class Docente {
 	
 	@Min(value =10000,message="El legajo debe ser mayor a 10.000")

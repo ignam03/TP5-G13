@@ -29,10 +29,11 @@ public class Alumno implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 3297184743700349336L;
-	@Min(value=1000000,message="El DNI debe ser mayor a 1.000.000")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="alu_id")
+	private Long aluNumber;
+	@Min(value=1000000,message="El DNI debe ser mayor a 1.000.000")
+	@Column(name="alu_dni")
 	private int dni;
 	@Size(min=3, max=20, message="El nombre debe tener entre 3 a 20 caracteres")
 	@NotEmpty(message="El nombre del alumno no puede ser vacio")
@@ -112,6 +113,16 @@ public class Alumno implements Serializable{
 
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
+	}
+
+
+	public Long getAluNumber() {
+		return aluNumber;
+	}
+
+
+	public void setAluNumber(Long aluNumber) {
+		this.aluNumber = aluNumber;
 	}
 	
 	

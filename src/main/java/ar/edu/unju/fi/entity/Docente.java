@@ -26,9 +26,11 @@ public class Docente implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 5432493012199702787L;
-	@Min(value =10000,message="El legajo debe ser mayor a 10.000")
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long docNumber;
+	@Min(value =10000,message="El legajo debe ser mayor a 10.000")
 	@Column(name="doc_legajo")
     private int legajo;
     @NotBlank(message="El nombre no puede ser vacio")
@@ -106,6 +108,16 @@ public class Docente implements Serializable{
 
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
+	}
+
+
+	public Long getDocNumber() {
+		return docNumber;
+	}
+
+
+	public void setDocNumber(Long docNumber) {
+		this.docNumber = docNumber;
 	}
 	
 	

@@ -21,6 +21,9 @@
                     <div class="col-6 col-md-6 offset-md-3">
                         <form th:action="@{/alumno/guardar}" method="POST" th:object="${alumno}">
                             <h3 class="mb-4">Alta Alumno 🧑 </h3>
+                            <div class="form-group">
+								<input type="hidden" th:field="*{aluNumber}" />
+							</div>
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="dniId">DNI </label>
                                 <input th:field="*{dni}" type="number" id="dniId" class="form-control" />

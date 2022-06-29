@@ -18,6 +18,8 @@ public class DocenteServiceImp implements IDocenteService{
     @Autowired
     DocenteRepository docenteDaoImp; 
 
+    
+
     private static final Log LOGGER = LogFactory.getLog(DocenteServiceImp.class);
 
     @Override
@@ -25,4 +27,14 @@ public class DocenteServiceImp implements IDocenteService{
     	docenteDaoImp.save(docente);
     }
 	
+    /*
+    @Autowired
+    private ListaDocente listaDocente; 
+    
+    @Override
+    public ListaDocente getDocenteLista(){
+        return listaDocente;
+    }
+    */
+    
 }

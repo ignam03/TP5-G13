@@ -46,6 +46,11 @@ public class Docente implements Serializable{
     @Column(name="doce_telefono")
     private String telefono;
 	
+    
+    
+    
+    
+    
 	public Docente() {
 		
 	}

@@ -3,12 +3,16 @@ package ar.edu.unju.fi.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
@@ -48,10 +52,14 @@ public class Alumno implements Serializable{
 	@Size(min=5, max=10) @NotEmpty(message="El telefono no puede ser vacío")
 	@Column(name="alu_telefono")
 	private String telefono;
-	@ManyToMany(mappedBy="alumnos")
-	private List<Curso> cursos;
 	
+	@OneToOne(cascade= {CascadeType.ALL})
+	@JoinColumn(name="curso_ID")
+	private Curso curso;
 	
+
+	
+
 	public Alumno() {
 		
 	}
@@ -63,6 +71,14 @@ public class Alumno implements Serializable{
 		this.apellido = apellido;
 		this.email = email;
 		this.telefono = telefono;
+	}
+	public Curso getCurso() {
+		return curso;
+	}
+
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
 	}
 
 

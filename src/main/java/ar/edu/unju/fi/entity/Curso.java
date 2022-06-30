@@ -2,6 +2,7 @@ package ar.edu.unju.fi.entity;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -11,7 +12,10 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.FutureOrPresent;
@@ -62,12 +66,21 @@ public class Curso implements Serializable{
 	@NotNull(message="Debe seleccionar un docente")
 	@Column(name="cur_docente")
 	private Docente docente;
-	@ManyToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
-	private List<Alumno> alumnos;
+	//@ManyToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToOne(mappedBy = "curso",fetch = FetchType.LAZY)
+	private Alumno alumnos;
+
+	@OneToMany(mappedBy = "curso",cascade = CascadeType.ALL)
+	private List<Beca> becas =new ArrayList<Beca>();
 	
+	
+
+
+
 	public Curso() {
 		
 	}
+	
 
 
 	public Curso(int codigo, String titulo, String categoria, LocalDate fechaInicio, LocalDate fechaFin, int cantHoras,
@@ -81,7 +94,15 @@ public class Curso implements Serializable{
 		this.modalidad = modalidad;
 		this.docente = docente;
 	}
+	public List<Beca> getBecas() {
+		return becas;
+	}
 
+
+
+	public void setBecas(List<Beca> becas) {
+		this.becas = becas;
+	}
 
 	public int getCodigo() {
 		return codigo;

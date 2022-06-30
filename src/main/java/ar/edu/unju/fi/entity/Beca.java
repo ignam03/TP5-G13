@@ -5,9 +5,12 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.FutureOrPresent;
@@ -16,6 +19,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
@@ -35,9 +39,11 @@ public class Beca implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="bec_id")
     private int codigo;
-    @NotNull(message="Debe seleccionar un curso")
-    @Column(name="bec_curso")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "bec_curso")
+	@NotNull(message="Debe seleccionar un curso")
     private Curso curso;
+	
 	@NotNull @FutureOrPresent(message="La fecha debe ser hoy o posterior")
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	@Column(name="bec_fechaInicio")
@@ -51,6 +57,11 @@ public class Beca implements Serializable{
     @Column(name="bec_estado")
     private String estado;
 	
+    
+   
+    
+    
+    
 	public Beca() {
 		
 	}

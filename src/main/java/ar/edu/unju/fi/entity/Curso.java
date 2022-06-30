@@ -66,6 +66,8 @@ public class Curso implements Serializable{
 	@NotNull(message="Debe seleccionar un docente")
 	@Column(name="cur_docente")
 	private Docente docente;
+	
+	
 	//@ManyToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
 	@OneToOne(mappedBy = "curso",fetch = FetchType.LAZY)
 	private Alumno alumnos;
